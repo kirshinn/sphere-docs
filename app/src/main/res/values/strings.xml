@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Sphere Docs</string>
+    <string name="home_screen_name">Сфера - Документы</string>
+    <string name="home_screen_button">загрузить документы</string>
+</resources>
