@@ -38,10 +38,10 @@ fun HomeScreen(
         )
         Button(
             modifier = Modifier.padding(vertical = 24.dp),
-            onClick = onContinueClicked
+            onClick = { viewModel.startScanning() }
         ) {
             Text(
-                stringResource(R.string.home_screen_button), style = TextStyle(
+                state.value.homeScreenButton, style = TextStyle(
                     fontSize = 16.sp
                 )
             )
