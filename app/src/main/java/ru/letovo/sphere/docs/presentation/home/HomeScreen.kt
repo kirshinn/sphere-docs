@@ -12,22 +12,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import ru.letovo.sphere.docs.R
+import ru.letovo.sphere.docs.presentation.Screen
 
 @Composable
 fun HomeScreen(
-    onContinueClicked: () -> Unit,
-    modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    navController: NavController
 ) {
 
     val state = viewModel.state.collectAsState()
 
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -38,13 +42,23 @@ fun HomeScreen(
         )
         Button(
             modifier = Modifier.padding(vertical = 24.dp),
-            onClick = { viewModel.startScanning() }
+            onClick = {
+                navController.navigate(route = Screen.DocumentsList.route)
+            }
         ) {
             Text(
-                state.value.homeScreenButton, style = TextStyle(
+                state.value.homeScreenButton,
+                style = TextStyle(
                     fontSize = 16.sp
                 )
             )
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenPreview(
+    viewModel: HomeViewModel = hiltViewModel(),
+    navController: NavHostController = rememberNavController()
+) { }

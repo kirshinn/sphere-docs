@@ -17,13 +17,7 @@ class HomeViewModel @Inject constructor(
 
     fun startScanning() {
         viewModelScope.launch {
-//            repo.startScanning().collect{
-//                if (!it.isNullOrBlank()){
-//                    _state.value = state.value.copy(
-//                        details = it
-//                    )
-//                }
-//            }
+            //
         }
     }
 }
