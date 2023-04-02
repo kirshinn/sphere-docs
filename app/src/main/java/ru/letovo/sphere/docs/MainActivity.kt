@@ -4,40 +4,27 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
-import ru.letovo.sphere.docs.presentation.home.HomeScreen
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import ru.letovo.sphere.docs.presentation.SetupNavGraph
 import ru.letovo.sphere.docs.ui.theme.SphereDocsTheme
 
 class MainActivity : ComponentActivity() {
+
+    lateinit var navController: NavHostController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SphereDocsTheme {
-                SphereDocsApp()
+                navController = rememberNavController()
+                SphereDocsApp(navController)
             }
         }
     }
 }
 
 @Composable
-fun SphereDocsApp() {
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
-
-    if (shouldShowOnboarding) {
-        HomeScreen(onContinueClicked = { shouldShowOnboarding = false })
-    } else {
-        //
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SphereDocsTheme {
-        SphereDocsApp()
-    }
+fun SphereDocsApp(navController: NavHostController) {
+    SetupNavGraph(navController = navController)
 }
