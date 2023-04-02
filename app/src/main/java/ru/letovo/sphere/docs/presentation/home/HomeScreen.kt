@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -22,15 +23,19 @@ import ru.letovo.sphere.docs.presentation.Screen
 
 @Composable
 fun HomeScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: HomeViewModel
 ) {
+
+    val state = viewModel.state.collectAsState()
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            stringResource(R.string.home_screen_name),
+            text = state.value.homeScreenName,
             style = TextStyle(
                 fontSize = 36.sp
             )
@@ -42,7 +47,7 @@ fun HomeScreen(
             }
         ) {
             Text(
-                stringResource(R.string.home_screen_button),
+                text = state.value.homeScreenButton,
                 style = TextStyle(
                     fontSize = 16.sp
                 )
