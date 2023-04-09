@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import ru.letovo.sphere.docs.presentation.documents.card.DocumentScreen
-import ru.letovo.sphere.docs.presentation.documents.card.DocumentViewModel
+import ru.letovo.sphere.docs.presentation.documents.card.DocumentCardScreen
+import ru.letovo.sphere.docs.presentation.documents.card.DocumentCardViewModel
 import ru.letovo.sphere.docs.presentation.documents.list.DocumentsListScreen
 import ru.letovo.sphere.docs.presentation.documents.list.DocumentsListViewModel
 import ru.letovo.sphere.docs.presentation.home.HomeScreen
@@ -33,9 +33,9 @@ fun SetupNavGraph(
         }
 
         composable(
-            route = Screen.Document.route
+            route = Screen.DocumentCard.route
         ) {
-            DocumentScreen(navController = navController, viewModel = DocumentViewModel())
+            DocumentCardScreen(navController = navController, viewModel = DocumentCardViewModel())
         }
 
     }

@@ -54,7 +54,7 @@ fun DocumentList(
 
                     IconButton(
                         onClick = {
-                            navController.navigate(route = Screen.Document.route)
+                            navController.navigate(route = Screen.DocumentCard.route)
                         }) {
                         Icon(
                             imageVector = Icons.Filled.AddCircle,

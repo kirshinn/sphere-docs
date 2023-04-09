@@ -6,18 +6,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavHostController
 
 @Composable
-fun DocumentScreen(
+fun DocumentCardScreen(
     navController: NavHostController,
-    viewModel: DocumentViewModel,
+    viewModel: DocumentCardViewModel,
 ) {
 
     val state = viewModel.state.collectAsState()
     
-    Document()
+    DocumentCard()
 
 }
 
 @Composable
-fun Document() {
+fun DocumentCard() {
     Text(text = "Document")
 }

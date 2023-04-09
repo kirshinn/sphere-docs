@@ -5,10 +5,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-class DocumentViewModel @Inject constructor(
+class DocumentCardViewModel @Inject constructor(
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(DocumentScreenState())
+    private val _state = MutableStateFlow(DocumentCardScreenState())
     val state = _state.asStateFlow()
 
 }
