@@ -6,7 +6,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -57,7 +59,7 @@ fun DocumentList(
                             navController.navigate(route = Screen.DocumentCard.route)
                         }) {
                         Icon(
-                            imageVector = Icons.Filled.AddCircle,
+                            imageVector = Icons.Filled.Info,
                             contentDescription = item.title,
                             modifier = Modifier
                                 .size(40.dp),
