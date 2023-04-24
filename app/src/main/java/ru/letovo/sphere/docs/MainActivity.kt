@@ -3,16 +3,20 @@ package ru.letovo.sphere.docs
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.camera.core.ExperimentalGetImage
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import ru.letovo.sphere.docs.presentation.SetupNavGraph
 import ru.letovo.sphere.docs.ui.theme.SphereDocsTheme
 
 class MainActivity : ComponentActivity() {
 
-    lateinit var navController: NavHostController
+    private lateinit var navController: NavHostController
 
+    @ExperimentalGetImage
+    @ExperimentalPermissionsApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,6 +28,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@ExperimentalGetImage
+@ExperimentalPermissionsApi
 @Composable
 fun SphereDocsApp(navController: NavHostController) {
     SetupNavGraph(navController = navController)
